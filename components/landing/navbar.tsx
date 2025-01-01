@@ -25,13 +25,13 @@ export function LandingNavbar() {
           </Link>
           <div className="hidden md:flex gap-6">
             <Link href="/features" className="text-muted-foreground hover:text-primary">
-              Features
+              功能特性
             </Link>
             <Link href="/pricing" className="text-muted-foreground hover:text-primary">
-              Pricing
+              价格方案
             </Link>
             <Link href="/templates" className="text-muted-foreground hover:text-primary">
-              Templates
+              模板中心
             </Link>
           </div>
         </div>
@@ -42,31 +42,31 @@ export function LandingNavbar() {
               <Button variant="ghost" size="icon">
                 <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                <span className="sr-only">Toggle theme</span>
+                <span className="sr-only">切换主题</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => setTheme("light")}>
                 <Sun className="mr-2 h-4 w-4" />
-                Light
+                浅色模式
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("dark")}>
                 <Moon className="mr-2 h-4 w-4" />
-                Dark
+                深色模式
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("system")}>
                 <Laptop className="mr-2 h-4 w-4" />
-                System
+                跟随系统
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
           <div className="hidden md:flex gap-4">
             <Button variant="ghost" asChild>
-              <Link href="/login">Sign In</Link>
+              <Link href="/login">登录</Link>
             </Button>
             <Button asChild>
-              <Link href="/register">Get Started</Link>
+              <Link href="/register">立即开始</Link>
             </Button>
           </div>
 
@@ -86,20 +86,20 @@ export function LandingNavbar() {
         <div className="md:hidden border-t p-4">
           <div className="flex flex-col space-y-4">
             <Link href="/features" className="text-muted-foreground hover:text-primary">
-              Features
+              功能特性
             </Link>
             <Link href="/pricing" className="text-muted-foreground hover:text-primary">
-              Pricing
+              价格方案
             </Link>
             <Link href="/templates" className="text-muted-foreground hover:text-primary">
-              Templates
+              模板中心
             </Link>
             <hr className="my-2" />
             <Button variant="ghost" asChild className="justify-start">
-              <Link href="/login">Sign In</Link>
+              <Link href="/login">登录</Link>
             </Button>
             <Button asChild className="justify-start">
-              <Link href="/register">Get Started</Link>
+              <Link href="/register">立即开始</Link>
             </Button>
           </div>
         </div>
