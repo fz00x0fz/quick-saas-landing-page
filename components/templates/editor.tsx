@@ -15,35 +15,27 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-interface Template {
-  id: string;
-  name: string;
-  description: string;
-  content: string;
-  category: string;
-  variables: string[];
-}
+import { Template } from "@/types";
 
 interface TemplateEditorProps {
   template: Template | null;
 }
 
 export function TemplateEditor({ template }: TemplateEditorProps) {
-  const [name, setName] = useState(template?.name || "");
-  const [description, setDescription] = useState(template?.description || "");
-  const [content, setContent] = useState(template?.content || "");
-  const [category, setCategory] = useState(template?.category || "");
-  const [variables, setVariables] = useState<string[]>(template?.variables || []);
+  const [name, setName] = useState(template?.name ?? "");
+  const [description, setDescription] = useState<string>(template?.description || "");
+  const [content, setContent] = useState<string>(template?.content || "");
+  const [category, setCategory] = useState<string>(template?.category || "");
+  const [variables, setVariables] = useState<string[]>(template?.variables ?? []);
   const [newVariable, setNewVariable] = useState("");
   const [previewData, setPreviewData] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (template) {
       setName(template.name);
-      setDescription(template.description);
+      setDescription(template.description || "");
       setContent(template.content);
-      setCategory(template.category);
+      setCategory(template.category || "");
       setVariables(template.variables || []);
       setPreviewData({});
     }

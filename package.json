@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "gh-pages -d out -b gh-pages --repo git@github_my_fz00x0fz:fz00x0fz/quick-saas-landing-page.git",
     "start": "next start",
     "lint": "next lint"
   },
@@ -69,5 +70,8 @@
     "vaul": "^0.9.9",
     "zod": "^3.23.8",
     "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }

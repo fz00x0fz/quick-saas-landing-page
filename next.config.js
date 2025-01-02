@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Comment out for server-side features
+  trailingSlash: true,
+  output: 'export', // Comment out for server-side features
   eslint: {
     ignoreDuringBuilds: true,
   },

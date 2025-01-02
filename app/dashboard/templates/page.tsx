@@ -2,10 +2,11 @@
 
 import { TemplateEditor } from "@/components/templates/editor";
 import { TemplateList } from "@/components/templates/list";
+import { Template } from "@/types";
 import { useState } from "react";
 
 export default function TemplatesPage() {
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
   return (
     <div className="space-y-6">
@@ -15,7 +16,7 @@ export default function TemplatesPage() {
         <div className="lg:col-span-1">
           <TemplateList
             onSelect={setSelectedTemplate}
-            selectedId={selectedTemplate?.id}
+            selectedId={selectedTemplate?.id ?? null}
           />
         </div>
         <div className="lg:col-span-2">
