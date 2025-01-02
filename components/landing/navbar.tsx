@@ -65,6 +65,9 @@ export function LandingNavbar() {
             <Button variant="ghost" asChild>
               <Link href="/login">登录</Link>
             </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/dashboard">控制台</Link>
+            </Button>
             <Button asChild>
               <Link href="/register">立即开始</Link>
             </Button>
@@ -97,6 +100,9 @@ export function LandingNavbar() {
             <hr className="my-2" />
             <Button variant="ghost" asChild className="justify-start">
               <Link href="/login">登录</Link>
+            </Button>
+            <Button variant="ghost" asChild className="justify-start">
+              <Link href="/dashboard">控制台</Link>
             </Button>
             <Button asChild className="justify-start">
               <Link href="/register">立即开始</Link>

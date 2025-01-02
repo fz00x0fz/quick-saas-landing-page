@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/hooks/use-auth";
 import {
   Card,
   CardContent,
@@ -17,6 +18,7 @@ import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { login } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,8 +34,8 @@ export default function LoginPage() {
     try {
       // TODO: Implement actual authentication logic here
       // For now, just simulate a delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      //await new Promise(resolve => setTimeout(resolve, 1000));
+      await login(email, password);  // 调用login函数设置用户状态
       // Redirect to dashboard after successful login
       router.push("/dashboard");
     } catch (err) {
