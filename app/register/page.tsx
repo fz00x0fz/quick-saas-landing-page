@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,16 +28,21 @@ export default function LoginPage() {
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
 
     try {
-      // TODO: Implement actual authentication logic here
+      if (password !== confirmPassword) {
+        throw new Error("两次输入的密码不一致");
+      }
+
+      // TODO: Implement actual registration logic here
       // For now, just simulate a delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Redirect to dashboard after successful login
+      // Redirect to dashboard after successful registration
       router.push("/dashboard");
     } catch (err) {
-      setError("登录失败，请检查您的邮箱和密码");
+      setError(err instanceof Error ? err.message : "注册失败，请稍后重试");
     } finally {
       setIsLoading(false);
     }
@@ -47,9 +52,9 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-background">
       <Card className="w-full max-w-md mx-4">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">登录</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">注册账号</CardTitle>
           <CardDescription className="text-center">
-            输入您的账号信息以登录系统
+            创建您的账号以开始使用我们的服务
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -75,6 +80,16 @@ export default function LoginPage() {
                 disabled={isLoading}
               />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">确认密码</Label>
+              <Input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                required
+                disabled={isLoading}
+              />
+            </div>
             {error && (
               <div className="text-sm text-red-500 text-center">
                 {error}
@@ -87,15 +102,15 @@ export default function LoginPage() {
               className="w-full"
               disabled={isLoading}
             >
-              {isLoading ? "登录中..." : "登录"}
+              {isLoading ? "注册中..." : "注册"}
             </Button>
             <div className="text-sm text-center text-muted-foreground">
-              还没有账号？{" "}
+              已有账号？{" "}
               <Link 
-                href="/register" 
+                href="/login" 
                 className="text-primary hover:underline"
               >
-                立即注册
+                立即登录
               </Link>
               {" · "}
               <Link 
@@ -103,14 +118,6 @@ export default function LoginPage() {
                 className="text-primary hover:underline"
               >
                 返回首页
-              </Link>
-            </div>
-            <div className="text-sm text-center">
-              <Link 
-                href="/forgot-password" 
-                className="text-muted-foreground hover:text-primary"
-              >
-                忘记密码？
               </Link>
             </div>
           </CardFooter>
