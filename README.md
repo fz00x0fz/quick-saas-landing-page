@@ -4,8 +4,9 @@ A quick landing page for your SaaS.
 
 # show case 
 
-https://quick-start-landing-page.ideabuild.work/
+[quick-start-landing-page](https://quick-start-landing-page.ideabuild.work/)
 
+[quick-start-saas](https://quick-start-saas.ideabuild.work/)
 
 # development
 
