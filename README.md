@@ -25,6 +25,12 @@ npx next start
 npx next run
 npx next export
 
+
+
+# publish
+npx next build
+npm run deploy
+
 ```
 
 
